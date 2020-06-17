@@ -203,7 +203,9 @@ class WheelBuilder(Builder):
 
     @property
     def dist_info(self):  # type: () -> str
-        return self.dist_info_name(self._package.name, self._meta.version)
+        name = self._package.published_package_name 
+        #if self._package.branch is None else "{0}-{1}".format(self._package.name, self._package.branch)
+        return self.dist_info_name(name, self._meta.version)
 
     @property
     def wheel_filename(self):  # type: () -> str

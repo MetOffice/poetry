@@ -39,7 +39,8 @@ class Package(object):
         """
         Creates a new in memory package.
         """
-        self._pretty_name = name
+        #self._pretty_name = name
+        self._name = name
         self._name = canonicalize_name(name)
 
         if not isinstance(version, Version):
@@ -87,14 +88,25 @@ class Package(object):
         self.root_dir = None
 
         self.develop = True
+        
+        self.published_package_name = self._name
 
     @property
     def name(self):
         return self._name
-
+        
+    @name.setter
+    def name(self, value):
+        self._name = value
+        
     @property
     def pretty_name(self):
-        return self._pretty_name
+        return self.published_package_name
+        #return self._name if self.branch is None else "{0}-{1}".format(
+        #    self._name, 
+        #    self.branch
+        #)
+        #return self._pretty_name
 
     @property
     def version(self):

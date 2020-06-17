@@ -39,10 +39,15 @@ class Builder(object):
     def __init__(
         self, poetry, env, io, ignore_packages_formats=False
     ):  # type: ("Poetry", "Env", "IO", bool) -> None
-        self._poetry = poetry
+        self._poetry = poetry        
         self._env = env
         self._io = io
         self._package = poetry.package
+#        name = self._package.name if self._package.branch is None else "{0}-{1}".format(
+#            self._package.name, 
+#            self._package.branch
+#        )
+#        self._package.name = name
         self._path = poetry.file.parent
         self._original_path = self._path
 

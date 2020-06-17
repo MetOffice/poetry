@@ -107,7 +107,6 @@ def get_platform():
     # XXX remove distutils dependency
     result = distutils.util.get_platform().replace(".", "_").replace("-", "_")
     if result == "linux_x86_64" and sys.maxsize == 2147483647:
-        # pip pull request #3497
         result = "linux_i686"
     return result
 

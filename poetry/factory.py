@@ -69,6 +69,10 @@ class Factory:
         package.homepage = local_config.get("homepage")
         package.repository_url = local_config.get("repository")
         package.documentation_url = local_config.get("documentation")
+        
+        if "published-package-name" in local_config:
+            package.published_package_name = local_config["published-package-name"]
+            
         try:
             license_ = license_by_id(local_config.get("license", ""))
         except ValueError:
@@ -133,7 +137,7 @@ class Factory:
             package.exclude = local_config["exclude"]
 
         if "packages" in local_config:
-            package.packages = local_config["packages"]
+            package.packages = local_config["packages"]          
 
         # Custom urls
         if "urls" in local_config:

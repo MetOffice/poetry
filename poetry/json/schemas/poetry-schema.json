@@ -43,6 +43,10 @@
             "description": "Documentation URL for the project.",
             "format": "uri"
         },
+        "published-package-name": {
+            "type": "string",
+            "description": "The name of this project when published as a wheel or otherwise"
+        },
         "license": {
             "type": "string",
             "description": "License name."
